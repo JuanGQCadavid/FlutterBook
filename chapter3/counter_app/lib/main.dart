@@ -109,6 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final incrementButton = FancyButton(
+      key: _buttonKeys[0],
       child: Text(
         "Increment",
         style: TextStyle(color: Colors.white),
@@ -117,10 +118,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final decrementButton = FancyButton(
+      key: _buttonKeys[1],
       child: Text(
         "Decrement",
         style: TextStyle(color: Colors.white),
       ),
+      onPressed: _decrementCounter,
     );
 
     List<Widget> _buttons = <Widget>[incrementButton,decrementButton];
@@ -185,25 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                RaisedButton(
-                  child: Text(
-                      "Decrement",
-                      style: TextStyle(color: Colors.white)
-                  ),
-                  onPressed: _decrementCounter,
-                  color: Colors.red
-                ),
-                RaisedButton(
-                  color: Colors.green,
-                  child: Text(
-                    "Increment",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: _incrementCounter,
-
-                ),
-              ],
+              children: _buttons
             )
 
           ],
